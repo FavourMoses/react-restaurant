@@ -1,0 +1,36 @@
+.group{
+text-align: center;
+font-size: 30px;
+font-weight: 550;
+padding-top: 5%;
+line-height: 20px;
+}
+.group2{
+  text-align: center;
+font-size: 24px;
+font-weight: 550;
+color: #c98c31;
+padding-left: 3%;
+}
+.foot{
+  text-align: center;
+  padding-top: 2%;
+  font-weight: 550;
+  opacity: 96%;
+}
+
+@media (max-width: 430px) {
+  .group{
+/* text-align: center; */
+font-size: 25px;
+/* font-weight: 550; */
+/* padding-top: 5%; */
+/* line-height: 20px; */
+}
+.foot{
+  font-size: 13px;
+}
+.group2{
+  padding-left: 20%;
+}
+}

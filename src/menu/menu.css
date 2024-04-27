@@ -1,0 +1,60 @@
+.flexcontainer{
+    display: flex;
+    margin-left: 4%;
+    margin-top: 2%;
+}
+.cart{
+    overflow: scroll;
+    height: 80vh;
+    width: 50%;
+    
+    /* margin-left: 40%; */
+}
+.grid{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 4%;
+}
+.cartbtn{
+    background-color: #c98c31;
+    border: none;
+    padding: 7px;
+    font-size: 17px;
+    border-radius: 4px;
+    /* font-weight: 550; */
+    color: #ffffff;
+}
+.carthead{
+    
+    color: #c98c31;
+}
+.cartimg{
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
+.cartdiv{
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 3px;
+}
+
+@media (max-width: 430px) {
+  .grid{
+    width: 100%;
+    gap: 30px;
+}  
+.cartimg{
+    width: 100%;
+    height: 10vh;
+    object-fit: cover;
+}
+}
+
+@media (max-width: 940px) {
+   .grid{
+    width: 100%;
+    gap: 30px;
+   }  
+}

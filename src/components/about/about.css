@@ -1,0 +1,128 @@
+.abcontainer{
+    display: flex;
+    padding-left: 4%;
+    padding-right: 4%;
+    border-top: 2px solid #eee;
+    padding-top: 4%;
+}
+.abp1{
+    font-size: 65px;
+    font-weight: 540;
+}
+.abplace{
+    padding: 3% 12%;
+    background-color:#c98c31;
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 4%;
+    margin-right: 4%;
+    border: none;
+    border-radius: 6px;
+}
+.abplace:hover{
+    transition: 0.5s;
+    background-color: transparent;
+    border: 2px solid #c98c31;
+    color: black;
+}
+.abplace2{
+    padding: 3% 12%;
+    background-color:#ef2831;
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 4%;
+    margin-right: 4%;
+    border: none;
+    border-radius: 6px;
+}
+.abplace2:hover{
+    transition: 0.5s;
+    background-color: transparent;
+    border: 2px solid #ef2831;
+    color: black;
+}
+.abp2{
+    font-size: 20px;
+  opacity: 75%;
+  line-height: 30px;
+  text-shadow: 0.1px 0.1px 0.1px rgba(0, 0, 0, 0.5);
+}
+.abdiv2{
+    display: flex;
+    gap: 4%;
+    margin-left: 4%;
+    margin-top: 2%;
+}
+.story{
+    text-shadow: 1px 0.1px 0.1px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    opacity: 70%;
+}
+.abp3{
+    font-size: 20px;
+  opacity: 75%;
+  line-height: 30px;
+  margin-right: 6%;
+}
+.abimg{
+    width: auto;
+    height: 60vh;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.abutton{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 2%;
+}
+.abutton h4{
+    border: 2px solid #eee;
+    padding: 4% 7.8%;
+    margin-top: 4%;
+    font-size: 20px;
+}
+
+@media (max-width: 430px) {
+    .abcontainer{
+        flex-direction: column;
+    }
+    .abp1{
+    font-size: 30px;
+    font-weight: 540;
+}
+.abp2{
+    font-size: 17px;
+    line-height: 25px;
+}
+.abimg{
+    /* width: 100%; */
+    height: 30vh;
+    border-radius: 10px;
+    margin-top: 4%;
+    object-fit: cover;
+}
+.abdiv2{
+    flex-direction: column;
+    gap: 4%;
+    margin-left: 4%;
+    margin-top: 2%;
+}
+.abp3{
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.abutton{
+    width: 80%;
+    gap: 2%;
+    margin-left: 4%;
+}
+.abutton h4{
+    border: 2px solid #eee;
+    padding: 1%;
+    margin-top: 4%;
+    font-size: 12px;
+    /* width: 40%; */
+}
+}
