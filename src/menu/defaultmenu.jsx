@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import burgerfood from "./../assets/burgerfood.png";
 import chickenEtChips from "./../assets/chickenEtChips.png";
 import pizza from "./../assets/pizza.png";
@@ -61,22 +62,18 @@ const Products = [
   },
 ];
 
-
-
 const ProductCard = ({ product, addToCart }) => {
-//   const [allTodos, setTodos] = useState([]);
+  //   const [allTodos, setTodos] = useState([]);
 
-// const handleDeleteTodo = (id) => {
-//   let reducedTodo = [...allTodos];
-//   reducedTodo.splice(id, 1);
+  // const handleDeleteTodo = (id) => {
+  //   let reducedTodo = [...allTodos];
+  //   reducedTodo.splice(id, 1);
 
+  //  localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-//  localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-//   localStorage.setItem("todolist", JSON.stringify(reducedTodo));
-//   setTodos(reducedTodo);
-// };
-
+  //   localStorage.setItem("todolist", JSON.stringify(reducedTodo));
+  //   setTodos(reducedTodo);
+  // };
 
   const { img, name, price } = product;
 
@@ -103,32 +100,10 @@ const ProductCard = ({ product, addToCart }) => {
   );
 };
 
-const Cart = ({ cart, reducedCart, product }) => {
-   const { img, name, price } = product;
-  
-  return (
-    <div className="">
-      <h2 className="">Cart</h2>
-      <div className="cartdiv">
-        {cart.map((item) => (
-          <div key={item.id} className="cart-item">
-            <img src={item.img} alt={item.name} className="cartimg" />
-            <div>
-              <h3 className="">{item.name}</h3>
-              <p className="">${item.price}</p>
-              <button onClick={() => reducedCart(Products.id)
-              }>remove</button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 const Newmenu = () => {
+  // const storedCart = localStorage.getItem("cart");
+  // const initialCart = storedCart ? JSON.parse(storedCart) : [];
   const [cart, setCart] = useState([]);
-  const [carte, setCarte] = useState([]);
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -143,31 +118,38 @@ const Newmenu = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-const reducedCart = (id) => {
-  // Create a copy of the cart array
-  const updatedCart = [...carte, Products];
+  const reducedCart = (id) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart);
+  };
 
-  // Find the index of the product to be removed
-  const indexToRemove = updatedCart.findIndex((Products) => Products.id === id);
-
-  // If the product is found in the cart
-  if (indexToRemove !== -1) {
-    // Remove the product from the copied cart array
-    updatedCart.splice(indexToRemove, 1);
-
-    // Update the state with the new cart array
-    setCarte(updatedCart);
-
-    // Update local storage with the new cart array
-    localStorage.setItem("carte", JSON.stringify(updatedCart));
-  }
-};
-
-  
+  const Cart = () => {
+    return (
+      <div className="">
+        <h2 className="">Cart</h2>
+        <div className="cartdiv">
+          {cart.map((item, index) => (
+            <div key={index} className="cart-item">
+              <img src={item.img} alt={item.name} className="cartimg" />
+              <div>
+                <h3 className="">{item.name}</h3>
+                <p className="">${item.price}</p>
+                <button className="remove" onClick={() => reducedCart(item.id)}>
+                  remove
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button className="checkout" onClick={() => alert("Successful")}>Checkout</button>
+      </div>
+    );
+  };
 
   return (
     <div className=" ">
-      <Nav/>
+      <Nav />
       <div className="flexcontainer">
         <div className="grid">
           {Products.map((product) => (
@@ -179,13 +161,11 @@ const reducedCart = (id) => {
           ))}
         </div>
         <div className="cart">
-          <Cart cart={cart} 
-          key={Products.id}
-          product={Products}
-          reducedCart={reducedCart}/>
+         
+          <Cart />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

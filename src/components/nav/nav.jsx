@@ -5,6 +5,9 @@ import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import './nav.css';
 import Nav1 from "./nav2";
 const Nav = () => {
+  const storedCart = localStorage.getItem("cart");
+  const cartArray = storedCart ? JSON.parse(storedCart) : []
+
   return (
     <div className="container">
       <div className="top">
@@ -27,7 +30,7 @@ const Nav = () => {
           </div>
         </div>
         <div className="cartitems">
-          <PiShoppingCartSimpleFill /> <p>0 ITEMS</p>
+          <PiShoppingCartSimpleFill /> <p>{cartArray.length} ITEMS</p>
         </div>
       </div>
       <Nav1 />
