@@ -11,6 +11,8 @@ import chocolate from "./../assets/chocolate.png";
 import Nav from "../components/nav/nav";
 import "./menu.css";
 import Footer from "../footer/footer";
+
+
 const Products = [
   {
     id: 1,
@@ -62,69 +64,80 @@ const Products = [
   },
 ];
 
+
+
+const CartDetails = () => {
+    const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+      const storedCart = localStorage.getItem("cart");
+      if (storedCart) {
+        setCart(JSON.parse(storedCart));
+      }
+    }, []);
+
+      const reducedCart = (id) => {
+        const updatedCart = cart.filter((item) => item.id !== id);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        setCart(updatedCart);
+      };
+  // alert("fun function");
+  return <Cart reducedCart={reducedCart} cart={cart}/>;
+};
+
+
+
+
+
+
 const ProductCard = ({ product, addToCart }) => {
   //   const [allTodos, setTodos] = useState([]);
-
+  
   // const handleDeleteTodo = (id) => {
-  //   let reducedTodo = [...allTodos];
-  //   reducedTodo.splice(id, 1);
-
-  //  localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-  //   localStorage.setItem("todolist", JSON.stringify(reducedTodo));
-  //   setTodos(reducedTodo);
-  // };
-
-  const { img, name, price } = product;
-
-  return (
-    <div className="cartLeft">
-      <img
-        data-aos="zoom-in"
-        data-aos-duration="1200"
-        src={img}
-        alt={name}
-        style={{
-          width: "100%",
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-          height: "20vh",
-          objectFit: "cover",
-        }}
-      />
-      <h3 className="carthead">{name}</h3>
-      <p className="">${price}</p>
-      <button onClick={() => addToCart(product)} className="cartbtn">
-        Add to Cart
-      </button>
+    //   let reducedTodo = [...allTodos];
+    //   reducedTodo.splice(id, 1);
+    
+    //  localStorage.setItem("cart", JSON.stringify(updatedCart));
+    
+    //   localStorage.setItem("todolist", JSON.stringify(reducedTodo));
+    //   setTodos(reducedTodo);
+    // };
+    
+    const { img, name, price } = product;
+    
+    return (
+      <div>
+      <div className="cartLeft">
+        <img
+          data-aos="zoom-in"
+          data-aos-duration="1200"
+          src={img}
+          alt={name}
+          style={{
+            width: "24rem",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+            height: "25vh",
+            objectFit: "cover",
+            borderRadius: "10px",
+            marginTop: "5%",
+            zIndex: "-10px",
+          }}
+        />
+        <h3 className="carthead">{name}</h3>
+        <p className="">${price}</p>
+        <button onClick={() => addToCart(product)} className="cartbtn">
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 };
 
-const Newmenu = () => {
-  // const storedCart = localStorage.getItem("cart");
-  // const initialCart = storedCart ? JSON.parse(storedCart) : [];
-  const [cart, setCart] = useState([]);
 
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-  }, []);
 
-  const addToCart = (product) => {
-    const updatedCart = [...cart, product];
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  };
 
-  const reducedCart = (id) => {
-    const updatedCart = cart.filter((item) => item.id !== id);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    setCart(updatedCart);
-  };
 
-  const Cart = () => {
+  const Cart = ({cart, reducedCart}) => {
     return (
       <div className="">
         <h2 className="">Cart</h2>
@@ -142,11 +155,45 @@ const Newmenu = () => {
             </div>
           ))}
         </div>
-        <button className="checkout" onClick={() => alert("Successful")}>Checkout</button>
+        <button className="checkout" onClick={() => alert("Successful")}>
+          Checkout
+        </button>
       </div>
     );
   };
 
+const Newmenu = () => {
+  // const storedCart = localStorage.getItem("cart");
+  // const initialCart = storedCart ? JSON.parse(storedCart) : [];
+  const [cart, setCart] = useState([]);
+  
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+  
+  const addToCart = (product) => {
+    const updatedCart = [...cart, product];
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+  
+  const reducedCart = (id) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart);
+  };
+
+
+
+
+
+  
+  
+  // const Cart = () => {
+    
   return (
     <div className=" ">
       <Nav />
@@ -161,8 +208,7 @@ const Newmenu = () => {
           ))}
         </div>
         <div className="cart">
-         
-          <Cart />
+          <Cart reducedCart={reducedCart} cart={cart} />
         </div>
       </div>
       <Footer />
@@ -170,4 +216,12 @@ const Newmenu = () => {
   );
 };
 
-export default Newmenu;
+
+
+
+
+
+
+
+
+export {Newmenu, CartDetails};

@@ -16,6 +16,9 @@
     flex-wrap: wrap;
     gap: 4%;
 }
+.cartleft{
+    z-index: 1;
+}
 .cartbtn{
     background-color: #c98c31;
     border: none;
@@ -33,6 +36,7 @@
     width: 100%;
     height: 30vh;
     object-fit: cover;
+    z-index: 1;
 }
 .cartdiv{
     display: flex;
@@ -56,8 +60,59 @@
     color: #ffffff;
     font-size: 18px;
 }
+/* .style{
+  position: 'absolute';
+  top: '50%';
+  left: '50%';
+  transform: 'translate(-50%, -50%)';
+  width: 400;
+  background-color: 'background.paper';
+  border: '2px solid #000';
+  box-Shadow: 24;
+  padding: 4;
+} */
+
+.md{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+.md2{
+    background: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+  z-index: 9999;
+
+}
+/* .myModal{
+    background-color: #ffffff;
+    position: "absolute";
+  top: "50%";
+  left: "50%";
+  transform: "translate(-50%, -50%)";
+  width: 400;
+  border: "2px solid #000";
+  box-shadow: 24;
+  max-height: 500px;
+  padding: 4;
+  overflow: scroll; */
+
 
 @media (max-width: 430px) {
+    .flexcontainer{
+        flex-direction: column;
+    }
   .grid{
     width: 100%;
     gap: 30px;
@@ -67,11 +122,22 @@
     height: 10vh;
     object-fit: cover;
 }
+
+.cart {
+    overflow: scroll;
+    height: 10vh;
+    width: 100%;
+}
+
 }
 
 @media (max-width: 940px) {
    .grid{
     width: 100%;
-    gap: 30px;
-   }  
+    gap: 60px;
+    display: flex;
+   } 
+   .flexcontainer{
+        flex-direction: column;
+    } 
 }
