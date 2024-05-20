@@ -4,9 +4,19 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import './nav.css';
 import Nav1 from "./nav2";
+import BasicModal from "../../menu/modal";
+import { useState } from "react";
+
+
 const Nav = () => {
   const storedCart = localStorage.getItem("cart");
-  const cartArray = storedCart ? JSON.parse(storedCart) : []
+  const cartArray = storedCart ? JSON.parse(storedCart) : [];
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(!open);
+  const handleClose = () => setOpen(false);
+
+
 
   return (
     <div className="container">
@@ -30,7 +40,13 @@ const Nav = () => {
           </div>
         </div>
         <div className="cartitems">
-          <PiShoppingCartSimpleFill /> <p>{cartArray.length} ITEMS</p>
+          <PiShoppingCartSimpleFill
+            onClick={handleOpen}
+            onClose={handleClose}
+          />
+          {open && <BasicModal />}
+          {/* Render BasicModal if open is true */}
+          <p>{cartArray.length} ITEMS</p>
         </div>
       </div>
       <Nav1 />
