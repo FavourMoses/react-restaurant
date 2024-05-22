@@ -31,7 +31,7 @@
 .cartitems {
   display: flex;
   margin-right: 2%;
-  gap: 5px;
+  gap: 1px;
 }
 
 
@@ -41,6 +41,7 @@
   display: flex;
   gap: 5px;
   font-size: 10px;
+  margin-left: 45%;
   }
 
   .call {
@@ -50,4 +51,7 @@
 .nav-icon {
   font-size: 7px;
 }
+.large-screen-only {
+    display: none;
+  }
 }
