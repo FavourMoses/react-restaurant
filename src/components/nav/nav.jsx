@@ -5,10 +5,24 @@ import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import './nav.css';
 import Nav1 from "./nav2";
 import BasicModal from "../../menu/modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 const Nav = () => {
+const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth < 1024);
+
+useEffect(() => {
+  const handleResize = () => {
+    setIsLargeScreen(window.innerWidth < 1024);
+  };
+
+  window.addEventListener("resize", handleResize);
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
+
+
   const storedCart = localStorage.getItem("cart");
   const cartArray = storedCart ? JSON.parse(storedCart) : [];
 
@@ -46,7 +60,9 @@ const Nav = () => {
           />
           {open && <BasicModal />}
           {/* Render BasicModal if open is true */}
-          <p>{cartArray.length} ITEMS</p>
+          <div className={isLargeScreen ? "large-screen-only" : ""}>
+            <p>{cartArray.length} ITEMS</p>
+          </div>
         </div>
       </div>
       <Nav1 />

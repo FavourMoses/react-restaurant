@@ -2,10 +2,12 @@
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 999px;
+  z-index: 999px !important;
+  background-color: #ffffff;
 }
 .top {
   background-color: #000000;
+  /* z-index: 1000px; */
   width: 100%;
   height: 5vh;
   display: flex;
@@ -31,7 +33,7 @@
 .cartitems {
   display: flex;
   margin-right: 2%;
-  gap: 5px;
+  gap: 1px;
 }
 
 
@@ -41,6 +43,7 @@
   display: flex;
   gap: 5px;
   font-size: 10px;
+  margin-left: 45%;
   }
 
   .call {
@@ -50,4 +53,7 @@
 .nav-icon {
   font-size: 7px;
 }
+.large-screen-only {
+    display: none;
+  }
 }

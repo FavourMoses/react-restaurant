@@ -1,4 +1,8 @@
 .abcontainer{
+    position: relative;
+    z-index: -2;
+}
+.ab-cont{
     display: flex;
     padding-left: 4%;
     padding-right: 4%;
@@ -84,8 +88,11 @@
 }
 
 @media (max-width: 430px) {
-    .abcontainer{
+    .ab-cont{
         flex-direction: column;
+    }
+    .story{
+        padding-top: 2%;
     }
     .abp1{
     font-size: 30px;
@@ -95,6 +102,7 @@
     font-size: 17px;
     line-height: 25px;
 }
+
 .abimg{
     /* width: 100%; */
     height: 30vh;

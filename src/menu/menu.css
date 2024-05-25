@@ -1,15 +1,19 @@
+/* @import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css'; */
+/* @import "swiper/swiper-bundle.min.css"; */
+/* @import "swiper/swiper.min.css"; */
 .flexcontainer{
-    display: flex;
+    /* display: flex; */
     margin-left: 4%;
     margin-top: 2%;
 }
-.cart{
+/* .cart{
     overflow: scroll;
     height: 80vh;
     width: 50%;
+ } */
     
-    /* margin-left: 40%; */
-}
+
 .grid{
     display: flex;
     width: 100%;
@@ -32,7 +36,7 @@
     
     color: #c98c31;
 }
-.cartimg{
+/* .cartimg{
     width: 100%;
     height: 30vh;
     object-fit: cover;
@@ -41,9 +45,9 @@
 .cartdiv{
     display: flex;
     /* flex-wrap: wrap; */
-    gap: 3px;
-}
-.remove{
+    /* gap: 3px;
+}  */
+/* .remove{
     background-color:#c98c31;
     padding: 6%;
     border: none;
@@ -59,18 +63,8 @@
     border-radius: 4px;
     color: #ffffff;
     font-size: 18px;
-}
-/* .style{
-  position: 'absolute';
-  top: '50%';
-  left: '50%';
-  transform: 'translate(-50%, -50%)';
-  width: 400;
-  background-color: 'background.paper';
-  border: '2px solid #000';
-  box-Shadow: 24;
-  padding: 4;
 } */
+
 
 .md{
   position: fixed;
@@ -95,19 +89,56 @@
   z-index: 9999;
 
 }
-/* .myModal{
-    background-color: #ffffff;
-    position: "absolute";
-  top: "50%";
-  left: "50%";
-  transform: "translate(-50%, -50%)";
-  width: 400;
-  border: "2px solid #000";
-  box-shadow: 24;
-  max-height: 500px;
-  padding: 4;
-  overflow: scroll; */
+.small-screen-only {
+    display: none;
+}
 
+
+
+
+
+
+
+.mycart {
+  width: 80%;
+  margin-top: 4%;
+  /* margin: 0 auto; */
+  background-color: #eee;
+  margin-left: 7%;
+}
+
+.cartdiv {
+  margin-top: 20px;
+}
+
+.cart-item {
+  padding: 10px;
+  text-align: center;
+}
+
+.cartimg {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.remove {
+  margin-top: 10px;
+  background-color: #ef2831;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.checkout {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #c98c31;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
 @media (max-width: 430px) {
     .flexcontainer{
@@ -124,9 +155,34 @@
 }
 
 .cart {
-    overflow: scroll;
+    /* overflow: scroll;
     height: 10vh;
-    width: 100%;
+    width: 100%; */
+    display: none;
+}
+
+.md{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+.md2{
+    background: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+  z-index: 9999;
+
 }
 
 }

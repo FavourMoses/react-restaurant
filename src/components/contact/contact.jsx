@@ -8,8 +8,9 @@ const Contact = () => {
       <div>
         <Nav />
         <div className="contact">
-          <img className="contactimg" src={restaurant2} />
-          <p className="contactp">Our Locations</p>
+          <div className="text-locate">
+            <p className="contact-p">Our Locations</p>
+          </div>
         </div>
         <p className="cp">
           <span className="cspan">33 Gana Street, Maitama, Abuja</span> <br />{" "}
@@ -25,7 +26,7 @@ const Contact = () => {
           <h5 className="openh">Saturday</h5>
           <p className="openP">10am - 11pm</p>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
 }
