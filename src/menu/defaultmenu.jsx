@@ -11,9 +11,12 @@ import chocolate from "./../assets/chocolate.png";
 import Nav from "../components/nav/nav";
 import "./menu.css";
 import Footer from "../footer/footer";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 
 const Products = [
@@ -64,6 +67,12 @@ const Products = [
     img: chocolate,
     name: "chocolate",
     price: 3000,
+  },
+  {
+    id: 2,
+    img: burgerfood,
+    name: "Big Burger",
+    price: 2000,
   },
 ];
 
@@ -132,6 +141,7 @@ const ProductCard = ({ product, addToCart }) => {
 
 
 const Cart = ({ cart, reducedCart }) => {
+  // this block is not needed anymore
 //   const [currentSlide, setCurrentSlide] = useState(0);
 
 //   const handleNext = () => {
@@ -181,57 +191,94 @@ const Cart = ({ cart, reducedCart }) => {
 
 
 
-
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    // slidesToShow: 3,
-    // slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-  return (
+return (
     <div className="mycart">
       <h2 className="">Cart</h2>
-      <div className="cartdiv">
-        <Slider {...settings}>
-          {cart.map((item, index) => (
-            <div key={index} className="cart-item">
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+      >
+        {cart.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className="cart-item">
               <img src={item.img} alt={item.name} className="cartimg" />
               <div>
                 <h3 className="">{item.name}</h3>
                 <p className="">${item.price}</p>
                 <button className="remove" onClick={() => reducedCart(item.id)}>
-                  Remove
+                  remove
                 </button>
               </div>
             </div>
-          ))}
-        </Slider>
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <button className="checkout" onClick={() => alert("Successful")}>
         Checkout
       </button>
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //   ],
+  // };
+
+  // return (
+  //   <div className="mycart">
+  //     <h2 className="">Cart</h2>
+  //     <div className="cartdiv">
+  //       <Slider {...settings}>
+  //         {cart.map((item, index) => (
+  //           <div key={index} className="cart-item">
+  //             <img src={item.img} alt={item.name} className="cartimg" />
+  //             <div>
+  //               <h3 className="">{item.name}</h3>
+  //               <p className="">${item.price}</p>
+  //               <button className="remove" onClick={() => reducedCart(item.id)}>
+  //                 Remove
+  //               </button>
+  //             </div>
+  //           </div>
+  //         ))}
+  //       </Slider>
+  //     </div>
+  //     <button className="checkout" onClick={() => alert("Successful")}>
+  //       Checkout
+  //     </button>
+  //   </div>
+  // );
+// };
 
 
 

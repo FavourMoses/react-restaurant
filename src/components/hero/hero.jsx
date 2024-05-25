@@ -18,8 +18,20 @@ const Hero = () => {
   return (
     <div>
       <Nav />
-      <img className="l3" src={img2} alt="flower" />
-      <div className="overlay">
+      {/* <div className="myZ"> */}{" "}
+      {/* <img className="l3" src={img2} alt="flower" /> */}
+      {/* <div className="mylay"> */}
+      {/* <p className="firstp">hygbv i</p> */}
+      {/* <p className="firstp">SoftEdge Restaurant</p>
+          <p className="firstp2">Only Quality Food</p>
+          <p className="firstp3">Experience the taste of Africa</p>
+          <button className="btnPlace">Place Your Order</button>
+          <div className="arrow">
+            <IoIosArrowDropdown />
+          </div> */}
+      {/* </div>
+      </div> */}
+      <div className="new_hero_cont">
         <p className="firstp">SoftEdge Restaurant</p>
         <p className="firstp2">Only Quality Food</p>
         <p className="firstp3">Experience the taste of Africa</p>
@@ -29,26 +41,28 @@ const Hero = () => {
         </div>
       </div>
       <div>
-        <p className="welcomeh">Welcome To SoftEdge </p>
-        <p className="welcomep">
-          We aim to do more than simply bringing delicious food from your
-          preferred restaurant. <br />
-          Our focus lies in establishing connections. That &apos;s why we
-          collaborate closely with chefs <br />
-          to craft menus bursting with freshness and flavor. Give us a try!
-        </p>
+        <div className="welcome_test">
+          <p className="welcome_div">Welcome To SoftEdge </p>
+          <p className="welcomep">
+            We aim to do more than simply bringing delicious food from your
+            preferred restaurant. <br />
+            Our focus lies in establishing connections. That &apos;s why we
+            collaborate closely with chefs <br />
+            to craft menus bursting with freshness and flavor. Give us a try!
+          </p>
+        </div>
         <img className="welomeImg" src={plate} alt="plate" />
-        <p className="welcomeh">We Will Deliver To Your Doorstep </p>
+        <p className="welcome_div">We Will Deliver To Your Doorstep </p>
       </div>
       <div className="compdiv">
         <p className="Reasonsh">Top 3 Reasons To Eat Here</p>
         <div
-          data-aos="zoom-in"
+          // data-aos="zoom-in"
           // data-aos-easing="ease-in-back"
           // data-aos-delay="0"
           // data-aos-offset="0"
-          data-aos-duration="1200"
-          className="compd"
+          // data-aos-duration="1200"
+          className="comp_d"
         >
           <Hcomp
             head="1. Exquisite Atmosphere"
@@ -88,40 +102,42 @@ const Hero = () => {
         </div>
         <div className="verifydiv">
           <p className="verified">Verified Customers Reviews</p>
-          <Hcomp2
-            image={womandog}
-            customer="David Micheal"
-            hd="We enjoyed a nice meal"
-            text="
+          <div className="cust_text_need">
+            <Hcomp2
+              image={womandog}
+              customer="David Micheal"
+              hd="We enjoyed a nice meal"
+              text="
 I went here for dinner a couple of days ago on a very busy Saturday night. 
 At the time I thought it was ok, but a bit ordinary. Much better visit this time, 
 a slightly odd mixture of different cuisines like many restaurants in Abuja. 
 We shared a caprese salad which was pretty well done. For mains a lasagna and chicken tacos, 
 both well done and both enjoyed. A nice terrace outside, but still the rainy season, so we sat inside. 
 Service was happy, and unusually for Abuja done promptly without being rushed. We enjoyed a nice meal"
-          />
+            />
 
-          <Hcomp2
-            image={couple}
-            customer="Clement Azu"
-            hd="Just Amazing"
-            text="
+            <Hcomp2
+              image={couple}
+              customer="Clement Azu"
+              hd="Just Amazing"
+              text="
 SoftEdge is great. I can’t get enough of the Espetadas and the mozzarella sticks. It’s my go to when
  I have some left over work. Their delivery service too is simply top notch. Highly recommend."
-          />
+            />
 
-          <Hcomp2
-            image={man}
-            customer="Nwachukwu Isibor"
-            hd="Romantic and Cozy"
-            text="The atmosphere is friendly and well spaced out, the new terrace area is very romantic,
+            <Hcomp2
+              image={man}
+              customer="Nwachukwu Isibor"
+              hd="Romantic and Cozy"
+              text="The atmosphere is friendly and well spaced out, the new terrace area is very romantic,
  with soft music over weekends. Pricing very fair, menu variety is good, and delivery space is swift.
   Please replace globes in the rope light that is not working. Thank you and keep it up. We attended a business
  dinner and later a private dinner. This indoor section still looks cozy and busy"
-          />
+            />
+          </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

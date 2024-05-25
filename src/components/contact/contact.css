@@ -1,11 +1,15 @@
-.contactimg{
-    width: 100%;
-    height: 45vh;
-    object-fit: cover;
-    margin-top: 1%;
-    opacity: 90%;
+.contact{
+    z-index: -2;
+    position: relative;
+    background-image: url(../../assets/restaurant.png);
+     background-size: cover;
+  background-position: center;
+  height: 50vh;
+  align-items: center;
+  justify-content: center;
 }
-.contactp{
+
+.contact-p{
     position: absolute;
     font-size: 64px;
     top: 32%;
@@ -30,9 +34,6 @@
     justify-content: center;
     margin-top: 2%;
 }
-.opening{
-    /* font-size: 25px; */
-}
 .opendiv{
     text-align: center;
     margin-top: 2%;
@@ -40,10 +41,15 @@
 }
 
 @media (max-width: 430px) {
-    .contactp{
-        font-size: 25px;
-        top: 27%;
-    left: 35%;
+    .contact{
+        z-index: -2;
+        height: 50vh;
+    }
+    .contact-p{
+        font-size: 28px;
+        font-weight: 550;
+        /* top: 40%; */
+    /* left: 2px; */
     }
     .contactimg{
     height: 30vh;
@@ -54,7 +60,7 @@
 }
 
 @media (max-width: 940px) {
-    .contactp{
+    .contact-p{
         font-size: 40px;
         top: 31%;
     left: 35%;
