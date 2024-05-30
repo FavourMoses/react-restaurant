@@ -186,6 +186,7 @@
 }
 .customer_p{
   z-index: -2;
+  padding-left: 2%;
 }
 .imgp p {
   padding-top: 2%;
@@ -193,6 +194,9 @@
 }
 .hcomp2parent p {
   opacity: 80%;
+}
+.t{
+  padding-top: 2%;
 }
 
 @media (max-width: 430px) {
@@ -253,10 +257,18 @@
   
   .hcp2image {
     width: 40%;
+    margin-top: 5%;
+  }
+  .customer_p{
+    padding-top: 5%;
   }
   .imgd2 {
     padding-right: 10%;
   }
+  .t{
+  padding-top: 4%;
+}
+
 }
 
 @media (max-width: 940px) {

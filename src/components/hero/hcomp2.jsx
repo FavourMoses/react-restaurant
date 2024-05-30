@@ -11,7 +11,7 @@ const Hcomp2 = ({image,customer,hd,text}) => {
         </div>
 
         
-          <p>{text}</p>
+          <p className='t'>{text}</p>
         </div>
       
     );
